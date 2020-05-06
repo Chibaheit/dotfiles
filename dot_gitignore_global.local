@@ -1,0 +1,18 @@
+# misc
+*.log *.pdf
+
+# idea
+.idea/
+
+# Tex
+auto/
+*.aux
+*.synctex.gz
+_minted*/
+
+# C/C++
+.cquery_cached_index/
+.ccls-cache/
+
+# Direnv
+.envrc

@@ -1,0 +1,24 @@
+# Encoding
+export LANG=en_US.UTF-8
+
+# --------------------- Alias ---------------------
+alias op="xdg-open"
+command -v pacman > /dev/null && alias p="yay"
+command -v copyq > /dev/null && alias cpy="copyq copy -"
+command -v copyq > /dev/null && alias pst="copyq clipboard"
+command -v trash-put > /dev/null && alias th="trash-put"
+alias sc="sudo systemctl"
+alias scu="systemctl --user"
+alias rk="refresh-kde.sh"
+alias rx="refresh-xsession.sh > /dev/null 2>&1"
+alias rename="perl-rename"
+# _____________________ Alias _____________________
+
+# --------------------- Misc ---------------------
+
+# Start/find ssh-agent
+eval $(keychain --eval --quiet)
+
+# Powerline
+unset _POWERLINE_SAVE_WIDGET
+# _____________________ Misc _____________________

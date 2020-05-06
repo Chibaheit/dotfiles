@@ -1,0 +1,11 @@
+chezmoi:
+  arch: amd64
+  fullHostname: Habel-MacBook-Pro.local
+  data:
+    .theme: dark
+  group: staff
+  homedir: /Users/habel
+  hostname: Habel-MacBook-Pro
+  os: darwin
+  sourceDir: /Users/habel/.local/share/chezmoi
+  username: habel
