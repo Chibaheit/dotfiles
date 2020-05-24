@@ -107,12 +107,9 @@ if is_osx; then
   brew tap homebrew/cask-fonts
   brew cask install \
        font-fira-code \
-       bartender \
-       istat-menus \
        amethyst \
        google-chrome \
-       alfred \
-       keepassxc \
+       firefox \
        bettertouchtool \
        visual-studio-code \
        iterm2 \
@@ -272,9 +269,6 @@ fi
 # fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
-# Ranger icon support
-git clone --depth 1 https://github.com/alexanderjeurissen/ranger_devicons /tmp/ranger_devicons \
-    && (cd /tmp/ranger_devicons && make install) && rm -rf /tmp/ranger_devicons
 # pyenv
 if ! bin_exists pyenv; then
   git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -283,11 +277,6 @@ fi
 
 # Oh-my-zsh
 git clone --recurse-submodules https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-if [[ ${use_ssh_url} == YES ]]; then
-  # Change submodule urls to SSH ones
-  sed -i 's|\(url = \)https://.*github.com/\(Chibaheit.*\)|\1git@github.com:\2|' ~/.oh-my-zsh/.git/config
-fi
-
 
 # z
 git clone https://github.com/rupa/z.git ~/.z
@@ -296,12 +285,6 @@ git clone https://github.com/rupa/z.git ~/.z
 wget -nc -P ~/.vim/colors https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 wget -nc -P ~/.vim/colors https://github.com/chriskempson/tomorrow-theme/raw/master/vim/colors/Tomorrow-Night.vim
 
-
-{{- if eq .chezmoi.os "darwin"}}
-# Karabiner
-git clone ${git_repo_url_prefix}15cm/karabiner-config.git ~/.config/karabiner
-{{- else}}
-{{- end}}
 
 git clone https://github.com/mollifier/cd-gitroot ~/.oh-my-zsh/custom/plugins/cd-gitroot
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
@@ -313,13 +296,7 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension James-Yu.latex-workshop 
 code --install-extension jonkwheeler.styled-components-snippets 
 code --install-extension jpoissonnier.vscode-styled-components 
-code --install-extension Lencerf.beancount 
-code --install-extension ms-azure-devops.azure-pipelines 
-code --install-extension ms-azuretools.vscode-azureappservice 
-code --install-extension ms-azuretools.vscode-azurefunctions 
-code --install-extension ms-azuretools.vscode-azurestorage 
-code --install-extension ms-azuretools.vscode-cosmosdb 
-code --install-extension ms-azuretools.vscode-docker 
+code --install-extension Lencerf.beancount
 code --install-extension ms-vscode-remote.remote-ssh 
 code --install-extension ms-vscode-remote.remote-ssh-edit 
 code --install-extension ms-vscode.azure-account 
@@ -330,5 +307,6 @@ code --install-extension msazurermtools.azurerm-vscode-tools
 code --install-extension msjsdiag.debugger-for-chrome 
 code --install-extension RobbOwen.synthwave-vscode 
 code --install-extension yzhang.markdown-all-in-one
+code --install-extension alefragnani.bookmarks
 
 chsh -s "$(command -v zsh)"
