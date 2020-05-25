@@ -8,8 +8,9 @@ is_osx() {
 if is_osx; then
 
   # brew
-  [[ -f '/usr/local/bin/brew']] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
-
+  if [[ ! -f '/usr/local/bin/brew' ]]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
   # Update source
   brew update
   brew upgrade
