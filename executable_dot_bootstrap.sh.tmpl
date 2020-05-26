@@ -8,9 +8,8 @@ is_osx() {
 if is_osx; then
 
   # brew
-  if [[ ! -f '/usr/local/bin/brew' ]]; then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  fi
+  [[ -f '/usr/local/bin/brew' ]] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
+
   # Update source
   brew update
   brew upgrade
@@ -38,14 +37,6 @@ if is_osx; then
         iterm2 \
         telegram \
         keka
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-  git clone https://github.com/rupa/z.git ~/.z
-  git clone --recurse-submodules https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-  git clone https://github.com/mollifier/cd-gitroot ~/.oh-my-zsh/custom/plugins/cd-gitroot
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-  wget -nc -P ~/.vim/colors https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-  wget -nc -P ~/.vim/colors https://github.com/chriskempson/tomorrow-theme/raw/master/vim/colors/Tomorrow-Night.vim
 
   code --install-extension dbaeumer.vscode-eslint 
   code --install-extension eamodio.gitlens 
@@ -66,5 +57,13 @@ if is_osx; then
   code --install-extension yzhang.markdown-all-in-one
   code --install-extension alefragnani.bookmarks
 fi
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+git clone https://github.com/rupa/z.git ~/.z
+git clone --recurse-submodules https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+git clone https://github.com/mollifier/cd-gitroot ~/.oh-my-zsh/custom/plugins/cd-gitroot
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+wget -nc -P ~/.vim/colors https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+wget -nc -P ~/.vim/colors https://github.com/chriskempson/tomorrow-theme/raw/master/vim/colors/Tomorrow-Night.vim
 
 chsh -s "$(command -v zsh)"
