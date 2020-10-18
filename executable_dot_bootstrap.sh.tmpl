@@ -31,8 +31,6 @@ if is_osx; then
         font-fira-code \
         amethyst \
         google-chrome \
-        firefox \
-        bettertouchtool \
         visual-studio-code \
         iterm2 \
         telegram \
@@ -66,4 +64,4 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/
 wget -nc -P ~/.vim/colors https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 wget -nc -P ~/.vim/colors https://github.com/chriskempson/tomorrow-theme/raw/master/vim/colors/Tomorrow-Night.vim
 
-chsh -s "$(command -v zsh)"
+chsh -s "$(which zsh)"
